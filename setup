@@ -1,0 +1,49 @@
+<?php 
+	// setup file
+	
+	// Error reporting
+	error_reporting(0); // switches error reporting off
+	
+	# Database connection
+	include('../config/connection.php');
+	
+	// issue at 5mins part 10 ****
+	
+	# Database connection .
+	
+	# Connection Script
+	include('../config/connection.php');
+	
+	# Constants:
+	DEFINE('D_TEMPLATE', 'template');
+	
+	# Functions:
+	include('functions/data.php');
+	include('template/template.php');
+	
+	# Site Setup
+	$debug = data_setting_value($dbc, 'debug-status');
+	
+	$site_title = 'David Ashby'; 
+	
+	if(isset($_GET['page'])){
+		
+		$pageid = $_GET['page']; // set $pageid equal to value given in url
+		
+	} else {
+		
+		$pageid = 'home'; // default page if incorrect entry made
+		
+	}
+	
+	# Page setup
+	include ('queries.php');
+	$page = data_page($dbc, $pageid);
+	
+	if(isset($_GET['id'])){ $opened = data_page($dbc, $_GET['id']); }
+	
+	# user setup
+	$user = data_user($dbc, $_SESSION['username']);
+	
+	
+?>
