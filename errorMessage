@@ -1,0 +1,7 @@
+Page could not be updated because: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+
+UPDATE pages SET user = 1, slug = '', title = 'Test', label = '', header = '', body = '
+
+test
+
+' WHERE id =
